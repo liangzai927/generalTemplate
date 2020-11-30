@@ -1,15 +1,19 @@
 {
-  "name": "demo",
+  "name": "generalTemplate",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
+    "mockjs": "^1.1.0",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9",
     "vuex": "^3.6.0"
@@ -35,7 +39,14 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "generator-star-spacing": "off",
+      "no-tabs": "off",
+      "no-unused-vars": "off",
+      "no-console": "off",
+      "no-irregular-whitespace": "off",
+      "no-debugger": "off"
+    }
   },
   "browserslist": [
     "> 1%",
