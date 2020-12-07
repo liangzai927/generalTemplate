@@ -10,10 +10,16 @@ const router = new VueRouter({
 })
 
 
-// router.beforeEach(async (to, from, next) => {
-//   // console.log(to);
-//   // console.log(from);
-//   // console.log(next);
-// })
+router.beforeEach(async (to, from, next) => {
+  const isLogin = sessionStorage.token ? true : false
+  if (to.path === '/login') {
+    next()
+  } else {
+    isLogin ? next() : next('/login')
+  }
+  // console.log(to);
+  // console.log(from);
+  // console.log(next);
+})
 
 export default router

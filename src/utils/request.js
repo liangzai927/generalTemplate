@@ -12,7 +12,7 @@ export default function $axios(options) {
     })
 
     /* request拦截器 */
-    server.interceptors.request.user(config => {
+    server.interceptors.request.use(config => {
       /* 在这里面处理请求前的数据 */
       config.data = JSON.stringify(config.data) //数据转换
       //处理请求头
@@ -26,7 +26,7 @@ export default function $axios(options) {
     })
 
     /* response拦截器 */
-    service.interceptors.response.use(response => {
+    server.interceptors.response.use(response => {
       // 处理接收到响应的数据
       response => {
         let data
@@ -101,7 +101,7 @@ export default function $axios(options) {
     })
 
     //请求处理
-    instance(options)
+    server(options)
       .then((res) => {
         resolve(res)
         return false

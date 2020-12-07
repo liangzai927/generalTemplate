@@ -25,6 +25,9 @@ export default {
     vHead,
     vSide,
   },
+  created() {
+    console.log(this.$api);
+  },
 };
 </script>
 <style lang="scss" scoped>

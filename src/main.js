@@ -14,7 +14,7 @@ Vue.use(ElementUI);
 Vue.use(VueRouter)
 Vue.use(install)
 
-require('./mock');
+// require('./mock');
 
 Vue.config.productionTip = false
 

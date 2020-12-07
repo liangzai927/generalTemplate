@@ -10,9 +10,9 @@ const getMenu = (params) => {
 }
 
 //登录
-const loing = (params) => {
+const login = (params) => {
   return axios({
-    url: 'api/loing',
+    url: '/user/login',
     method: 'get',
     params
   })
@@ -21,5 +21,5 @@ const loing = (params) => {
 
 export default {
   getMenu,
-  loing
+  login,
 }
