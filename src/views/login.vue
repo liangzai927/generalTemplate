@@ -52,6 +52,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
+          //发送登录请求 获取token及登录信息
           const userData = {
             id: 1,
             name: "lwl",

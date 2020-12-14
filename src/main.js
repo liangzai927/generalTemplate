@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 import router from './router/index'
 import install from './http/index'
 import './utils/request.js'
+import Fragment from 'vue-fragment'
 
 //挂载vuex
 import store from './store/store'
@@ -13,6 +14,7 @@ import store from './store/store'
 Vue.use(ElementUI);
 Vue.use(VueRouter)
 Vue.use(install)
+Vue.use(Fragment.Plugin) //解决折叠文字不消失的问题
 
 // require('./mock');
 

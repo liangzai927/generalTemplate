@@ -5,6 +5,19 @@ Vue.use(Vuex)
 import { router } from './modules/router'
 
 export default new Vuex.Store({
+  state: {
+    isFold: false,
+  },
+  mutations: {
+    changeFold(state) {
+      state.isFold = !state.isFold
+    }
+  },
+  getters: {
+    getFold(state) {
+      return state.isFold
+    }
+  },
   modules: {
     router
   }

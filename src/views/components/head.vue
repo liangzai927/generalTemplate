@@ -2,7 +2,7 @@
   <div class="header">
     <div class="left">
       <div style="" class="fold" @click="clickFold">
-        <i class="el-icon-s-fold" v-if="isFold"></i>
+        <i class="el-icon-s-fold" v-if="!isFold"></i>
         <i class="el-icon-s-unfold" v-else></i>
       </div>
       <div class="title">后台管理通用模板</div>
@@ -39,18 +39,27 @@ export default {
   name: "vhead",
   data() {
     return {
-      isFold: true,
+      // isFold: true,
       imgUrl:
         "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1606733691162&di=f4dcd6cee16b157f88724b12c042aa39&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20191102%2F15%2F1572680088-UVtofrnMAP.jpg",
     };
   },
   methods: {
     clickFold() {
-      this.isFold = !this.isFold;
+      this.$store.commit("changeFold");
+      // this.isFold = !this.isFold;
     },
     errorHandler() {
       return true;
     },
+  },
+  computed: {
+    isFold() {
+      return this.$store.getters.getFold;
+    },
+  },
+  created() {
+    // this.isFold = this.$store.getters.getFold;
   },
 };
 </script>

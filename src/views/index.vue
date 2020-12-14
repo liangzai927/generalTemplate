@@ -3,9 +3,10 @@
     <v-head></v-head>
     <el-container>
       <el-container>
-        <el-aside width="200px">
-          <v-side></v-side>
-        </el-aside>
+        <!-- <el-aside style="max-width: 200px">
+        </el-aside> -->
+        <v-side></v-side>
+
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -26,7 +27,7 @@ export default {
     vSide,
   },
   created() {
-    console.log(this.$api);
+    // console.log(this.$api);
   },
 };
 </script>
