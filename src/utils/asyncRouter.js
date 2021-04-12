@@ -3,8 +3,8 @@ const _import = require('./_import') //获取组件的方法
 export const asyncRouterHandle = (asyncRouter) => {
   asyncRouter.map(item => {
     if (item.component) {
-      console.log(item.component);
-      item.component = _import(item.component)
+      item.component = loadMenu(item.component)
+      
     } else {
       delete item['component']
     }
@@ -12,4 +12,8 @@ export const asyncRouterHandle = (asyncRouter) => {
       asyncRouterHandle(item.children)
     }
   })
+}
+
+function loadMenu(path) {
+  return () => import(`@/${path}`)
 }

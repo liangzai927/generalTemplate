@@ -18,7 +18,7 @@ const data = [
     title: "首页",
     name: "home",
     parentId: "0",
-    path: "home",
+    path: "/home",
     sort: 1,
     systemkey: "",
     systemname: ""
@@ -50,52 +50,8 @@ const data = [
       sort: 0,
       systemkey: "",
       systemname: ""
-    },
-    {
-      CreatedAt: "2020-06-09T09:39:03+08:00",
-      DeletedAt: null,
-      ID: 0,
-      UpdatedAt: "2020-06-09T09:39:03+08:00",
-      authoritys: null,
-      children: null,
-      component: "views/tools/declare/declare.vue",
-      hidden: false,
-      menuId: "80",
-      meta: { keepAlive: false, defaultMenu: false, title: "申报", icon: "" },
-      defaultMenu: false,
-      icon: "",
-      keepAlive: false,
-      title: "申报",
-      name: "declare",
-      parentId: "61",
-      path: "declare",
-      sort: 1,
-      systemkey: "",
-      systemname: ""
-    },
-    {
-      CreatedAt: "2020-06-08T09:28:10+08:00",
-      DeletedAt: null,
-      ID: 0,
-      UpdatedAt: "2020-06-08T09:28:10+08:00",
-      authoritys: null,
-      children: null,
-      component: "views/tools/toolsOperation/toolsOperation.vue",
-      hidden: false,
-      menuId: "79",
-      meta: { keepAlive: false, defaultMenu: false, title: "工单查询", icon: "" },
-      defaultMenu: false,
-      icon: "",
-      keepAlive: false,
-      title: "工单查询",
-      name: "toolsOperation",
-      parentId: "61",
-      path: "toolsOperation",
-      sort: 2,
-      systemkey: "",
-      systemname: ""
     }],
-    component: "views/tools/index.vue",
+    component: "views/index.vue",
     hidden: false,
     menuId: "61",
     meta: { keepAlive: false, defaultMenu: false, title: "工单", icon: "tickets" },
@@ -137,22 +93,13 @@ export const router = {
     async getRouters({ commit }) {
       const r = data //一般为接口请求到的数据
       //创建一个基础的路由
-      const baseR = [{
-        path: '/',
-        redirect: '/home', //重定向页面, 一般为首页
-        children: []
-      }]
+      let baseR = []
       formatRouter(r)
-      baseR[0].children = r
+      baseR = [...r]
       asyncRouterHandle(baseR)
-      baseR.push({
-        path: '/login',
-        component: () => import('@/views/login.vue')
-      },
-        {
-          path: '*',
-          component: () => import('@/views/404.vue')
-        })
+
+      console.log('------------------')
+      console.log(baseR)
       commit('setAsyncRouter', baseR)
       return true
     }

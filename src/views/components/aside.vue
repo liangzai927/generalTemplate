@@ -10,36 +10,39 @@
       :collapse="isCollapse"
       router
     >
-      <menu-tree :menu="menu"></menu-tree>
+      <!-- <menu-tree :menu="menu"></menu-tree> -->
+      <MenuItem v-for="(item, index) in menu" :key="index" :item="item" path="/" />
     </el-menu>
   </div>
 </template>
 <script>
-import MenuTree from "./menuTree";
+// import MenuTree from "./menuTree";
+import MenuItem from "./MenuItem";
 export default {
   name: "vaside",
   data() {
     return {
       menu: [],
-      defaultPath: "",
+      defaultPath: ""
     };
   },
   computed: {
     isCollapse() {
       return this.$store.getters.getFold;
-    },
+    }
   },
   created() {
-    this.menu = this.$store.getters.asyncRouters[0].children;
-    this.defaultPath = this.$route.path.split("/")[1];
-    console.log(this.$router);
+    this.menu = this.$store.getters.asyncRouters;
+    this.defaultPath = "/" + this.$route.path.split("/")[1];
+    console.log(this.defaultPath);
   },
   methods: {
-    handleSelect(key, keypath) {},
+    handleSelect(key, keypath) {}
   },
   components: {
-    MenuTree,
-  },
+    // MenuTree,
+    MenuItem
+  }
 };
 </script>
 <style lang="scss" scoped>
