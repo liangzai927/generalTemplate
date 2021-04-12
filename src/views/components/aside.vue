@@ -32,6 +32,7 @@ export default {
   created() {
     this.menu = this.$store.getters.asyncRouters[0].children;
     this.defaultPath = this.$route.path.split("/")[1];
+    console.log(this.$router);
   },
   methods: {
     handleSelect(key, keypath) {},

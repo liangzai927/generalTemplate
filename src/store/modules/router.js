@@ -105,7 +105,7 @@ const data = [
     title: "工单",
     name: "tools",
     parentId: "0",
-    path: "tools",
+    path: "/tools",
     sort: 2,
     systemkey: "",
     systemname: "",

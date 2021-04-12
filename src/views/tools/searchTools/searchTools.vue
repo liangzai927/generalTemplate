@@ -1,16 +1,12 @@
 <template>
   <div>
-    <h3>首页</h3>
-    <img :src="img" alt="" />
+    <h3>123</h3>
   </div>
 </template>
 <script>
 export default {
-  name: "home",
   data() {
-    return {
-      img: require("@/assets/logo.png"),
-    };
+    return {};
   },
 };
 </script>
